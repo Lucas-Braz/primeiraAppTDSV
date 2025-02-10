@@ -12,10 +12,6 @@ public class S_Home {
     @Autowired
     private R_Locacao r_locacao;
 
-    public S_Home(R_Locacao r_locacao){
-        this.r_locacao = r_locacao;
-    }
-
     public List<M_ViewLocacao> getLocacoesEmCurso(Long id_usuario){
         return r_locacao.getLocacoesEmCurso(id_usuario);
     }

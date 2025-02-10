@@ -40,6 +40,7 @@ public interface R_Locacao extends JpaRepository<M_Locacao, Long> {
             "on locacao.id_quarto = quarto.id " +
             "LEFT JOIN consumo " +
             "on locacao.id = consumo.id_locacao " +
+            "AND consumo.id_produto not in(8)/*Elimina Diarias*/ " +
             "where locacao.id_usuario = :id_usuario " +
             "and now() between locacao.check_in and locacao.check_out " +
             "GROUP BY 1,2,3,4,5,6,7 " +
@@ -63,6 +64,7 @@ public interface R_Locacao extends JpaRepository<M_Locacao, Long> {
             "on locacao.id_quarto = quarto.id " +
             "LEFT JOIN consumo " +
             "on locacao.id = consumo.id_locacao " +
+            "AND consumo.id_produto not in(8)/*Elimina Diarias*/ " +
             "where locacao.id_usuario = :id_usuario " +
             "and now() < locacao.check_in " +
             "GROUP BY 1,2,3,4,5,6,7 " +
@@ -86,9 +88,16 @@ public interface R_Locacao extends JpaRepository<M_Locacao, Long> {
             "on locacao.id_quarto = quarto.id " +
             "LEFT JOIN consumo " +
             "on locacao.id = consumo.id_locacao " +
+            "AND consumo.id_produto not in(8)/*Elimina Diarias*/ " +
             "where locacao.id_usuario = :id_usuario " +
             "and now() > locacao.check_out " +
             "GROUP BY 1,2,3,4,5,6,7 " +
             "ORDER BY 1", nativeQuery = true)
     List<M_ViewLocacao> getLocacoesRealizadas(@Param("id_usuario") Long id_usuario);
+
+    @Query(value="select * " +
+            "from locacao " +
+            "where (cast(check_out as date) > now() or cast(check_out as date) = cast(check_in as date)) " +
+            "and now() between check_in and check_out",nativeQuery = true)
+    List<M_Locacao> getLocacoesGerarDiarias();
 }
