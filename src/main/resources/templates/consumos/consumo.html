@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="/css/default.css"/>
     <script src="/js/leitor.js" defer></script>
     <script src="/js/consumo.js" defer></script>
+    <script src="/js/navbar.js" defer></script>
     <style type="text/css">
         #camera video {
             width: 100%;
@@ -128,7 +129,7 @@
     <div id="consumos-container" class="consumos-container row mt-2">
         <div class="row">
             <div class="col-12">
-                <h4 class="text-center">Consumos Locação: <span th:text="${locacao.id}"></span></h4>
+                <h4 class="text-center">Consumos Locação: <span class="h4" th:text="${locacao.id}"></span></h4>
             </div>
             <div class="col-sm-4">
                 <h6 class="text-center">Quarto: <span th:text="${locacao.quarto.nome}"></span></h6>
@@ -143,7 +144,8 @@
             </div>
         </div>
         <div id="itens-consumo">
-            <div th:each="consumo : ${consumos}" class="item-consumo">
+            <div th:each="consumo : ${consumos}" class="item-consumo"
+                th:data-produto="${consumo.produto.descricao}">
                 <hr class="separador-produto">
                 <div class="row">
                     <div class="col-md-8">

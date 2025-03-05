@@ -27,6 +27,7 @@ public class C_Login {
             model.addAttribute("em_curso",s_home.getLocacoesEmCurso(m_usuario.getId()));
             model.addAttribute("futuras",s_home.getLocacoesFuturas(m_usuario.getId()));
             model.addAttribute("realizadas",s_home.getLocacoesRealizas(m_usuario.getId()));
+            model.addAttribute("search",true);
             return "home/home";
         }
         return "index";

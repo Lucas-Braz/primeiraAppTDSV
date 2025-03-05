@@ -31,6 +31,7 @@ public class C_Consumos {
             model.addAttribute("locacao", s_reserva.getLocacaoById(id));
             model.addAttribute("produtos", s_produto.getProdutos());
             model.addAttribute("consumos", s_consumo.getConsumos(id));
+            model.addAttribute("search",true);
             return "consumos/consumo";
         }
         return "redirect:/";

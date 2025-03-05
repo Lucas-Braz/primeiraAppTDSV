@@ -11,6 +11,8 @@ public class M_Produto {
     private String cod_barras;
     private String descricao;
     private Double preco;
+    private Integer min;
+    private Integer max;
 
     public Long getId() {
         return id;
@@ -42,5 +44,21 @@ public class M_Produto {
 
     public void setPreco(Double preco) {
         this.preco = preco;
+    }
+
+    public Integer getMin() {
+        return min;
+    }
+
+    public void setMin(Integer min) {
+        this.min = min;
+    }
+
+    public Integer getMax() {
+        return max;
+    }
+
+    public void setMax(Integer max) {
+        this.max = max;
     }
 }

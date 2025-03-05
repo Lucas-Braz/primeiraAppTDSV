@@ -23,3 +23,8 @@ nav{
     font-size: 0.75rem;
     line-height: 1;
 }
+.search, .search:focus{
+    --bs-secondary-color: #888;
+    background: #fff;
+    color: #000;
+}

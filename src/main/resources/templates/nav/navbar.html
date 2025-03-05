@@ -23,6 +23,9 @@
 <!--                </ul>-->
 <!--            </li>-->
         </ul>
+        <div class="d-flex" th:if="${search}">
+            <input class="form-control me-2 search" type="search" id="searchInput" placeholder="Buscar..." aria-label="Search">
+        </div>
         <a class="btn btn-danger" id="btnLogout">Logout</a>
     </div>
 </div>

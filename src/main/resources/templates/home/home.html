@@ -19,6 +19,7 @@
     <!--CUSTOMS-->
     <link rel="stylesheet" href="/css/default.css"/>
     <script src="/js/index.js" defer></script>
+    <script src="/js/navbar.js" defer></script>
     <title>Hoteis SENAI</title>
     <style>
         .card_locacao{
@@ -60,7 +61,9 @@
     <div class="row">
         <div class="col-4 lista-locacoes" id="realizadas">
             <h4 class="text-center">Realizadas</h4>
-            <div class="row card_locacao" th:each="locacao : ${realizadas}">
+            <div class="row card_locacao" th:each="locacao : ${realizadas}"
+                 th:data-id="${locacao.id}"
+                 th:data-quarto="${locacao.nome}">
                 <div class="col-md-12 text-center">
                     <b>Cód. Locação <span th:text="${locacao.id}"></span></b>
                 </div>
@@ -117,7 +120,9 @@
         </div>
         <div class="col-4 lista-locacoes" id="em_curso">
             <h4 class="text-center">Em curso</h4>
-            <div class="row card_locacao" th:each="locacao : ${em_curso}">
+            <div class="row card_locacao" th:each="locacao : ${em_curso}"
+                 th:data-id="${locacao.id}"
+                 th:data-quarto="${locacao.nome}">
                 <div class="col-md-8 text-center">
                     <b>Cód. Locação <span th:text="${locacao.id}"></span></b>
                 </div>
@@ -177,7 +182,9 @@
         </div>
         <div class="col-4 lista-locacoes" id="reservas">
             <h4 class="text-center">Reservas</h4>
-            <div class="row card_locacao" th:each="locacao : ${futuras}">
+            <div class="row card_locacao" th:each="locacao : ${futuras}"
+                 th:data-id="${locacao.id}"
+                 th:data-quarto="${locacao.nome}">
                 <div class="col-md-12 text-center">
                     <b>Cód. Locação <span th:text="${locacao.id}"></span></b>
                 </div>
